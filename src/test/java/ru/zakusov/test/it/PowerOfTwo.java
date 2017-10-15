@@ -5,7 +5,7 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class Task08 {
+public class PowerOfTwo {
 
     /**
      * Checks if given <code>value</code> is a power of two.

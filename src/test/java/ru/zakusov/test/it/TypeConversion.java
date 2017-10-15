@@ -2,7 +2,7 @@ package ru.zakusov.test.it;
 
 import org.junit.Test;
 
-public class Task07 {
+public class TypeConversion {
 
     @Test
     public void typeConversion() {

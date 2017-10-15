@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class Task02 {
+public class BooleanExpression {
 
     /**
      * Реализуйте метод, возвращающий true, если среди четырех его аргументов ровно два истинны (любые).

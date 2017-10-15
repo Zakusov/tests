@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class Task05 {
+public class FlipBit {
 
     /**
      * Flips one bit of the given <code>value</code>.

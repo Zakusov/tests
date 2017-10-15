@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class Task10 {
+public class Palindrome {
 
     /**
      * Checks if given <code>text</code> is a palindrome.

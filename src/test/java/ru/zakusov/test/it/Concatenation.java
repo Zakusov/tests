@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class Task09 {
+public class Concatenation {
 
     @Test
     public void testConcatenation() {
