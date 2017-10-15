@@ -1,4 +1,4 @@
-package ru.zakusov.test.it;
+package ru.zakusov.test.chapter2;
 
 import org.junit.Test;
 
