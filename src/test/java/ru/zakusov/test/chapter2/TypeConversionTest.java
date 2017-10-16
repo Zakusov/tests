@@ -2,7 +2,7 @@ package ru.zakusov.test.chapter2;
 
 import org.junit.Test;
 
-public class TypeConversion {
+public class TypeConversionTest {
 
     @Test
     public void typeConversion() {

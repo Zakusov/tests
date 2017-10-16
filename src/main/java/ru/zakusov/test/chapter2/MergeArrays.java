@@ -1,11 +1,5 @@
 package ru.zakusov.test.chapter2;
 
-import org.junit.Test;
-
-import java.util.Arrays;
-
-import static org.junit.Assert.assertTrue;
-
 /**
  * Реализуйте метод, сливающий два отсортированных по неубыванию массива чисел в один отсортированный в том же порядке массив.
  * Массивы могут быть любой длины, в том числе нулевой.
@@ -15,6 +9,7 @@ import static org.junit.Assert.assertTrue;
  * уже не требовалась.
  */
 public class MergeArrays {
+
     /**
      * Merges two given sorted arrays into one
      *
@@ -61,22 +56,5 @@ public class MergeArrays {
             }
         }
         return a3;
-    }
-
-    @Test
-    public void testMergeArrays() {
-        assertTrue(Arrays.equals(new int[]{0, 1, 2, 2, 3}, mergeArrays(new int[]{0, 2, 2}, new int[]{1, 3})));
-        assertTrue(Arrays.equals(new int[]{0, 0, 2, 2, 3}, mergeArrays(new int[]{0, 2, 2}, new int[]{0, 3})));
-        assertTrue(Arrays.equals(new int[]{0, 1, 2, 2, 3}, mergeArrays(new int[]{1, 3}, new int[]{0, 2, 2})));
-        assertTrue(Arrays.equals(new int[]{0, 1, 2, 2, 3, 3}, mergeArrays(new int[]{1, 3, 3}, new int[]{0, 2, 2})));
-        assertTrue(Arrays.equals(new int[]{0, 1}, mergeArrays(new int[]{1}, new int[]{0})));
-    }
-
-    @Test
-    public void testMergeArraysForNotInitializedArguments() {
-        assertTrue(Arrays.equals(new int[]{0, 2, 2}, mergeArrays(new int[]{0, 2, 2}, new int[]{})));
-        assertTrue(Arrays.equals(new int[]{0, 2, 2}, mergeArrays(new int[]{0, 2, 2}, null)));
-        assertTrue(Arrays.equals(new int[]{1, 3}, mergeArrays(new int[]{}, new int[]{1, 3})));
-        assertTrue(Arrays.equals(new int[]{1, 3}, mergeArrays(null, new int[]{1, 3})));
     }
 }

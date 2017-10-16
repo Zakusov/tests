@@ -5,16 +5,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class DoubleExpression {
-
-    /**
-     * Реализуйте метод, возвращающий ответ на вопрос: правда ли, что a + b = c?
-     * <p>
-     * Допустимая погрешность – 0.0001 (1E-4)
-     */
-    public static boolean doubleExpression(double a, double b, double c) {
-        return Math.abs(c - b - a) <= 1E-4;
-    }
+/**
+ * Тест {@link DoubleExpression}.
+ */
+public class DoubleExpressionTest {
 
     @Test
     public void doubleExpression() {
@@ -41,7 +35,7 @@ public class DoubleExpression {
     }
 
     private static boolean doubleExpressionAndPrint(double a, double b, double c) {
-        boolean result = doubleExpression(a, b, c);
+        boolean result = DoubleExpression.doubleExpression(a, b, c);
         System.out.println(a + " + " + b + " = " + c + " -> " + result);
         return result;
     }

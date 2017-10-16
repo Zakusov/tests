@@ -4,21 +4,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class BooleanExpression {
-
-    /**
-     * Реализуйте метод, возвращающий true, если среди четырех его аргументов ровно два истинны (любые).
-     * Во всех остальных случаях метод должен возвращать false.
-     */
-    public static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
-        int count = 0;
-        for (boolean x : new boolean[]{a, b, c, d}) {
-            if (x && (++count > 2)) {
-                return false;
-            }
-        }
-        return count == 2;
-    }
+/**
+ * Тест {@link BooleanExpression}.
+ */
+public class BooleanExpressionTest {
 
     @Test
     public void booleanExpression() {
@@ -35,7 +24,7 @@ public class BooleanExpression {
     }
 
     private static boolean booleanExpression(char a, char b, char c, char d) {
-        boolean result = booleanExpression(a == '1', b == '1', c == '1', d == '1');
+        boolean result = BooleanExpression.booleanExpression(a == '1', b == '1', c == '1', d == '1');
         System.out.println("" + a + b + c + d + " -> " + result);
         return result;
     }
