@@ -6,6 +6,9 @@ package ru.zakusov.test.chapter2;
  */
 public class BooleanExpression {
 
+    /**
+     * Контракт метода по заданию.
+     */
     public static boolean booleanExpression(boolean a, boolean b, boolean c, boolean d) {
         int count = 0;
         for (boolean x : new boolean[]{a, b, c, d}) {

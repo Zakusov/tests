@@ -7,6 +7,9 @@ package ru.zakusov.test.chapter2;
  */
 public class DoubleExpression {
 
+    /**
+     * Контракт метода по заданию.
+     */
     public static boolean doubleExpression(double a, double b, double c) {
         return Math.abs(c - b - a) <= 1E-4;
     }

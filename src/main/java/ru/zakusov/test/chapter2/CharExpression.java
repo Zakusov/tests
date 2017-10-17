@@ -5,6 +5,9 @@ package ru.zakusov.test.chapter2;
  */
 public class CharExpression {
 
+    /**
+     * Контракт метода по заданию.
+     */
     public static char charExpression(int a) {
         return (char) ('\\' + a);
     }

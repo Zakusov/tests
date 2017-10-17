@@ -9,6 +9,9 @@ package ru.zakusov.test.chapter2;
  */
 public class LeapYearCount {
 
+    /**
+     * Контракт метода по заданию.
+     */
     public static int leapYearCount(int year) {
         return year / 4 - year / 100 + year / 400;
     }
