@@ -10,6 +10,7 @@ package ru.zakusov.test.chapter2;
  * написав решение "в лоб" с циклом и условными операторами (можете вернуться к этой задаче после просмотра соответствующих уроков).
  */
 public class PowerOfTwo {
+
     /**
      * Checks if given <code>value</code> is a power of two.
      *
