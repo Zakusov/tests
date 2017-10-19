@@ -43,10 +43,15 @@ public class TextPerRole {
             return "";
         }
 
-        int i = 0;
+        // Подготовим заранее пустой текст для каждой роли
+        Map<String, StringBuilder> textPerRoles = new HashMap<>();
+        Set<String> roleSet = new LinkedHashSet<>(Arrays.asList(roles));
+        for (String role : roles) {
+            textPerRoles.put(role, new StringBuilder());
+        }
 
-        Set<String> roleSet = new HashSet<>(Arrays.asList(roles));
-        Map<String, StringBuilder> textPerRoles = new LinkedHashMap<>();
+        // Обрабазываем исходные данные
+        int i = 0;
         for (String line : textLines) {
             String role = "";
             int delim = line.indexOf(':');
@@ -56,15 +61,14 @@ public class TextPerRole {
             if (!roleSet.contains(role)) {
                 continue;
             }
-            if (!textPerRoles.containsKey(role)) {
-                textPerRoles.put(role, new StringBuilder());
-            }
             String speech = line.substring(delim + 1);
             textPerRoles.get(role).append(++i).append(")").append(speech).append("\n");
         }
+
+        // Формируем итоговый текст с группировкой по ролям.
         StringBuffer result = new StringBuffer();
-        textPerRoles.forEach((role, text) -> {
-            result.append(role).append(":\n").append(text).append("\n");
+        roleSet.forEach(role -> {
+            result.append(role).append(":\n").append(textPerRoles.get(role)).append("\n");
         });
         return result.toString();
     }
