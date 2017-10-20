@@ -46,7 +46,7 @@ public class Robot {
                     robot.turnRight();
                 }
             } else {
-                // Идём направо
+                // Идём вверх
                 while (robot.getDirection() != Direction.UP) {
                     robot.turnRight();
                 }
