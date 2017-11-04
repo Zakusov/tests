@@ -1,4 +1,4 @@
-package ru.zakusov.test.chapter04;
+package ru.zakusov.test.chapter4;
 
 /**
  * Реализуйте метод sqrt(), вычисляющий квадратный корень числа. В отличие от Math.sqrt(),
