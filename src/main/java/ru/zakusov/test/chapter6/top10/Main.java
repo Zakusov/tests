@@ -1,10 +1,10 @@
-package ru.zakusov.test.chapter6.frequency;
+package ru.zakusov.test.chapter6.top10;
 
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Напишите программу, читающую из System.in текст в кодировке UTF-8, подсчитывающую в нем частоту появления слов,
@@ -21,6 +21,7 @@ import java.util.stream.Stream;
  * Если в тексте некоторые слова имеют одинаковую частоту, т.е. их нельзя однозначно упорядочить только по частоте,
  * то дополнительно упорядочите слова с одинаковой частотой в лексикографическом порядке.
  */
+// TODO Your code complexity score is 25.32 (less is better).
 public class Main {
 
     public static void main(String[] args) {
@@ -28,38 +29,25 @@ public class Main {
     }
 
     public static void filterTop10(InputStream inputStream, PrintStream outputStream) {
-        Map<String, Integer> counter = getCounter(inputStream);
-        if (counter.size() != 0) {
-            final int[] printed = {0};
-            List<Integer> top10 = getTop10(counter);
-            counter.forEach((word, count) -> {
-                if (top10.contains(count)) {
-                    outputStream.println(word);
-                    if (++printed[0] > 9) {
-                        return;
-                    }
-                }
-            });
-        }
+        List<String> words = getWords(inputStream);
+        Map<String, Long> grouped = words.stream().collect(
+                Collectors.groupingBy(
+                        Function.identity(), TreeMap::new, Collectors.counting()
+                )
+        );
+
+        grouped.entrySet().stream()
+                .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+                .limit(10)
+                .forEachOrdered(x -> outputStream.println(x.getKey()));
     }
 
-    public static Map<String, Integer> getCounter(InputStream inputStream) {
-        Map<String, Integer> counter = new TreeMap<>();
-        Scanner scanner = new Scanner(inputStream);
+    public static List<String> getWords(InputStream stream) {
+        List<String> words = new ArrayList<>();
+        Scanner scanner = new Scanner(stream, "UTF-8").useDelimiter("[^\\p{L}\\p{Digit}]+");
         while (scanner.hasNext()) {
-            int count = 1;
-            String word = scanner.next().toLowerCase();
-            if (counter.containsKey(word)) {
-                count = counter.get(word).intValue() + 1;
-            }
-            counter.put(word, count);
+            words.add(scanner.next().toLowerCase());
         }
-        return counter;
-    }
-
-    public static List<Integer> getTop10(Map<String, Integer> counter) {
-        Stream<Integer> sorted = counter.values().stream().sorted(Comparator.reverseOrder());
-        IntStream limited = sorted.mapToInt(i -> i).limit(10);
-        return limited.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        return words;
     }
 }
