@@ -2,7 +2,6 @@ package ru.zakusov.test.chapter6;
 
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
@@ -12,7 +11,7 @@ public class FindMinMaxTest {
 
     @Test
     public void findMinMaxForIntegers() throws Exception {
-        Stream<Integer> stream = Arrays.stream(new Integer[]{1, 2, 3, 4, 5});
+        Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
         Integer[] minMax = new Integer[2];
 
         FindMinMax.findMinMax(stream, Integer::compare, (a, b) -> {
@@ -26,7 +25,7 @@ public class FindMinMaxTest {
 
     @Test
     public void findMinMaxForStrings() throws Exception {
-        Stream<String> stream = Arrays.stream(new String[]{"a", "b", "c"});
+        Stream<String> stream = Stream.of("a", "b", "c");
         String[] minMax = new String[2];
 
         FindMinMax.findMinMax(stream, String::compareTo, (a, b) -> {
@@ -40,7 +39,7 @@ public class FindMinMaxTest {
 
     @Test
     public void findMinMaxForEmptyStream() throws Exception {
-        Stream<String> stream = Arrays.stream(new String[]{});
+        Stream<String> stream = Stream.empty();
         String[] minMax = new String[2];
 
         FindMinMax.findMinMax(stream, String::compareTo, (a, b) -> {
