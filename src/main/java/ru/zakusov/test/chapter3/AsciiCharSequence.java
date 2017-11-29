@@ -58,12 +58,7 @@ public class AsciiCharSequence implements CharSequence {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj instanceof AsciiCharSequence) {
-            return toString().equals(obj.toString());
-        }
-        return false;
+        return obj == this
+                || obj instanceof AsciiCharSequence && toString().equals(obj.toString());
     }
 }
